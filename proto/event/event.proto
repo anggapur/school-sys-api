@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "event/";
+
+message EventDetails {
+    string id = 1;
+    string event_name = 2;
+    string description = 3;
+}
+
+enum EventStatus {
+    EVENT_CREATED = 0;
+    EVENT_UPDATED = 1;
+    EVENT_FAILED = 2;
+    EVENT_DUPLICATE_ENTRY = 3;
+}

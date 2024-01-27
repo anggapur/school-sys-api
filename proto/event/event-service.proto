@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+option go_package = "event/";
+import "api/proto/event/event.proto";
+import "api/proto/google/api/annotations.proto";
+
+message EventRequest{
+    string event = 1;
+    string desc = 2;
+}
+
+message EventResponse{
+    EventDetails eventDetails = 1;
+    EventStatus status = 2;
+}
+
+message GetEventRequest{
+    string event = 1;
+}
+
+message GetEventResponse{
+    EventDetails eventDetails = 1;
+}
+
+message GetAllEventsRequest{
+   string events = 1;
+}
+
+message GetAllEventsResponse{
+   repeated EventDetails eventDetails = 1;
+}
+
+message UpdateEventRequest{
+    string event_id = 1;
+    string event = 2;
+    string desc = 3;
+}
+
+message UpdateEventResponse{
+    EventDetails eventDetails = 1;
+    EventStatus status = 2;
+}
+
+service EventPlatform{
+    rpc CreateEvent(EventRequest) returns (EventResponse) {
+        option (google.api.http) = {
+            post: "/api/V1/create/event"
+            body:  "*"
+        };
+    }
+    rpc GetEvent(GetEventRequest) returns (GetEventResponse) {
+        option (google.api.http) = {
+            post: "/api/V1/fetch/event"
+            body:  "*"
+        };
+    }
+    rpc GetAllEvents(GetAllEventsRequest) returns (GetAllEventsResponse) {
+        option (google.api.http) = {
+            get: "/api/V1/get/all/events"
+        };
+    }
+    rpc UpdateEvent(UpdateEventRequest) returns (UpdateEventResponse) {
+        option (google.api.http) = {
+            put: "/api/V1/update/event"
+            body:  "*"
+        };
+    }
+}
