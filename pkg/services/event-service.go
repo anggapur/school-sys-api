@@ -2,6 +2,7 @@ package services
 
 import (
 	"context"
+	eventpb "github.com/anggapur/school-sys-api/pkg/generated/event"
 	"log"
 )
 

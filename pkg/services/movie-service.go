@@ -2,6 +2,7 @@ package services
 
 import (
 	"context"
+	moviepb2 "github.com/anggapur/school-sys-api/pkg/generated/movie"
 	"log"
 )
 
