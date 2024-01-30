@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "file/";
+import "api/proto/file/file.proto";
+import "api/proto/google/api/annotations.proto";
+
+message FileUploadRequest {
+    string name = 1;
+}
+
+message FileUploadDetailResponse {
+    FileUploadDetail fileDetail = 1;
+    FileUploadStatus status = 2;
+}
+
+
+
+service FileUploadPlatform{
+    rpc RequestFileUpload(FileUploadRequest) returns (FileUploadDetailResponse) {
+        option (google.api.http) = {
+            post: "/api/v1/file/upload"
+            body:  "*"
+        };
+    }
+}

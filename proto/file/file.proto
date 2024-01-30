@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "file/";
+
+message FileUploadDetail {
+    string id = 1;
+    string name = 2;
+    string presigned_url = 3;
+}
+
+enum FileUploadStatus {
+    FILE_DRAFT = 0;
+    FILE_UPLOADED = 1;
+}
