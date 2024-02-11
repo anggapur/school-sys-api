@@ -4,8 +4,9 @@ option go_package = "file/";
 
 message FileUploadDetail {
     string id = 1;
-    string name = 2;
+    string activity_name = 2;
     string presigned_url = 3;
+    repeated string kids = 4;
 }
 
 enum FileUploadStatus {

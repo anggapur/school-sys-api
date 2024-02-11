@@ -5,7 +5,8 @@ import "api/proto/file/file.proto";
 import "api/proto/google/api/annotations.proto";
 
 message FileUploadRequest {
-    string name = 1;
+    string activity_name = 1;
+    repeated string kids = 2;
 }
 
 message FileUploadDetailResponse {
